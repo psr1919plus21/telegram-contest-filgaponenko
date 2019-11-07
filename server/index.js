@@ -1,35 +1,29 @@
-var path = require('path');
+const path = require('path');
 const os = require('os');
 const express = require('express');
+const bodyParser = require('body-parser');
 const server = express();
 
-const TelegramApp = require('./TelegramApp').TelegramApp;
+const Api = require('./Api');
 
-let data = {};
+initServer({ server, port: 3000 });
 
-initServer(server);
+function initServer({ server, port }) {
 
-function initServer(server) {
-  const port = 3000;
-
+  server.use(bodyParser.json()); 
   server.use('/static', express.static('dist'));
-
-  server.get('/login', function (req, res) {
-    res.sendFile(path.resolve(__dirname + '/../templates/login.html'));
-  });
 
   server.get('/', function (req, res) {
     res.send('Hello World!');
   });
 
-  server.post('/api/send_phone', function (req, res) {
-    console.log('API: send phone');
+  server.get('/login', function (req, res) {
+    res.sendFile(path.resolve(__dirname + '/../templates/login.html'));
   });
 
   server.listen(port, function() {
     console.log('Express server listen port: ', port);
-
-    data.telegramApp = new TelegramApp();
+    new Api({ server });
   });
 }
 

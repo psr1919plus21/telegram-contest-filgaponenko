@@ -7,9 +7,34 @@
     <title>Telegram | Welcome :)</title>
 </head>
 <body>
-    <h1>Hello, I'm login page :)</h1>
-    <h2>Get comfortable and get cup of tea</h2>
+    <div class="container">
+        <div class="login">
+            <header class="login__header login-header">
+                <div class="login-header__logo"></div>
+                <div class="login-header__title">Sign in to Telegram</div>
+                <div class="login-header__description">Please confirm your country and enter your phone number.</div>
+            </header>
+
+            <div class="login__content">
+                <div class="login-form">
+                    <ul class="login-form__list">
+                        <li class="login-form__item">
+                            <input placeholder="Country" type="text" class="login-form__input">
+                        </li>
+
+                        <li class="login-form__item">
+                            <input class="phone-input" placeholder="Phone number" type="text" class="login-form__input">
+                        </li>
+
+                        <li class="login-form__item">
+                            <label for="keep-me" class="login-form__label"><input type="checkbox" class="login-form__checkbox">&nbsp;Keep me signed in</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    <script src="static/bundle.js"></script>
+    <script src="static/login.bundle.js"></script>
 </body>
 </html>
