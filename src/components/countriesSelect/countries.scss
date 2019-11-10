@@ -1,0 +1,67 @@
+$color-country-hover: #f4f4f5;
+$color-phone-code: #707579;
+
+.country-form-item {
+    &:before {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        background: url('../../static/img/icon-down.svg') center no-repeat;
+        background-size: contain;
+        right: 15px;
+        top: 15px;
+        z-index: 1;
+    }
+}
+
+.country-form-item_active {
+    &:before {
+        background-image: url('../../static/img/icon-down-blue.svg');
+        transform: rotate(180deg);
+    }
+}
+
+.countries-select__content-wrapper {
+    display: none;
+    background: #fff;
+    box-shadow: 0px 1px 3px 0 #666;
+    border-radius: 10px;
+    position: absolute;
+    padding-top: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    top: 62px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.countries-select__content {
+    max-height: 374px;
+    overflow-y: auto;
+    width: calc(100% + 14px);
+}
+
+.countries-select__content-wrapper_active {
+    display: block;
+}
+
+.countries-select__item {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 19px 16px;
+
+    &:hover {
+        background: $color-country-hover;
+    }
+}
+
+.countries-select__flag {
+    margin-right: 35px;
+    width: 22px;
+}
+
+.countries-select__phone-code {
+    color: $color-phone-code;
+}

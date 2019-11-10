@@ -1,3 +1,8 @@
+@import '../../components/countriesSelect/countries.scss';
+
+$color-input-border: #dadce0;
+$color-input-focus: #4ea4f6;
+
 .login__header {
     padding-top: 101px;
 }
@@ -18,6 +23,7 @@
 }
 
 .login-header__description {
+    color: #757a7e;
     text-align: center;
     max-width: 230px;
     margin: 15px auto 0;
@@ -25,14 +31,36 @@
 }
 
 .login-form {
-    max-width: 400px;
-    margin: 0 auto;
+    max-width: 360px;
+    margin: 49px auto 0;
 }
 
 .login-form__list {
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.login-form__item {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.login-form__input {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid $color-input-border;
+    line-height: 50px;
+    font-size: 16px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    
+    &:focus {
+        outline: none;
+        border-color: $color-input-focus;
+        box-shadow: 0 0 0 1px $color-input-focus;
+        caret-color: $color-input-focus;
+    }
 }
 
 .login__spiner {
