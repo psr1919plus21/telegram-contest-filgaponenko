@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Telegram | Welcome :)</title>
-    <link rel="stylesheet" href="static/css/common.css">
     <link rel="stylesheet" href="static/css/login.css">
 </head>
 <body>
@@ -25,11 +24,13 @@
                 <div class="login-form">
                     <ul class="login-form__list">
                         <li class="login-form__item country-form-item">
-                            <input placeholder="Country" readonly type="text" class="login-form__input country-input">
+                            <input placeholder="Country" readonly type="text" name="country" class="login-form__input country-input">
+                            <label class="login-form__input-label" for="country">Country</label>
                         </li>
 
-                        <li class="login-form__item">
-                            <input placeholder="Phone number" type="tel" class="login-form__input phone-input">
+                        <li class="login-form__item phone-form-item">
+                            <input placeholder="Phone number" type="tel" name="phone" class="login-form__input phone-input">
+                            <label class="login-form__input-label" for="phone">Phone number</label>
                         </li>
 
                         <li class="login-form__item">
