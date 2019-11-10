@@ -1,10 +1,9 @@
 import debounce from 'lodash/debounce';
-import cc from 'country-json';
-
-console.log('cc: ', cc);
-
 import Api from './services/Api';
 
+import initCountiesSelect  from './components/countriesSelect';
+
+initCountiesSelect('.country-input');
 const phoneInput = document.querySelector('.phone-input');
 
 phoneInput.addEventListener('keyup', debounce(onPhoneKeyUp, 1000));
