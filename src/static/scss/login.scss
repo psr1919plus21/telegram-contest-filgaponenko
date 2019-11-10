@@ -3,6 +3,7 @@
 
 $color-input-border: #dadce0;
 $color-input-focus: #4ea4f6;
+$color-button-blue: #4ea4f6;
 
 .login__header {
     padding-top: 101px;
@@ -84,6 +85,27 @@ $color-input-focus: #4ea4f6;
 .error .login-form__input {
     border-color: $color-red;
     box-shadow: 0 0 0 1px $color-red;
+}
+
+.login-form__submit {
+    color: #fff;
+    background: $color-button-blue;
+    padding: 18px 22px;
+    display: block;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.submit-form-item {
+    display: none;
+    margin-top: 48px;
+}
+
+.submit-form-item_active {
+    display: block;
 }
 
 .login__spiner {

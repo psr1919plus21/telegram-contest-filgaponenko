@@ -21,6 +21,10 @@ function initServer({ server, port }) {
     res.sendFile(path.resolve(__dirname + '/../templates/login.html'));
   });
 
+  server.get('/code', function (req, res) {
+    res.sendFile(path.resolve(__dirname + '/../templates/code.html'));
+  });
+
   server.listen(port, function() {
     console.log('Express server listen port: ', port);
     new Api({ server });

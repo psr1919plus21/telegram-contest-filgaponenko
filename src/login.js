@@ -5,6 +5,7 @@ import initCountiesSelect  from './components/countriesSelect';
 
 initCountiesSelect('.country-input');
 const phoneFormItem = document.querySelector('.phone-form-item');
+const submitFormItem = document.querySelector('.submit-form-item');
 const phoneInput = document.querySelector('.phone-input');
 
 phoneInput.addEventListener('keyup', debounce(onPhoneKeyUp, 1000));
@@ -12,9 +13,9 @@ phoneInput.addEventListener('keyup', debounce(onPhoneKeyUp, 1000));
 function onPhoneKeyUp(e) {
     const value = e.target.value;
 
-    // Show spinner
     phoneInput.classList.add('progress');
     phoneFormItem.classList.remove('error');
+    submitFormItem.classList.remove('submit-form-item_active');
     Api.sentPhone(value)
         .then(onSentPhoneSuccess)
         .catch(onSentPhoneError);
@@ -23,8 +24,8 @@ function onPhoneKeyUp(e) {
 function onSentPhoneSuccess() {
     console.log('Success');
     phoneInput.classList.remove('progress');
-    // Hide spinner
     // Show next button
+    submitFormItem.classList.add('submit-form-item_active');
 }
 
 function onSentPhoneError() {
