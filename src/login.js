@@ -1,4 +1,8 @@
 import debounce from 'lodash/debounce';
+import cc from 'country-json';
+
+console.log('cc: ', cc);
+
 import Api from './services/Api';
 
 const phoneInput = document.querySelector('.phone-input');

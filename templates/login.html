@@ -12,8 +12,10 @@
     <div class="container">
         <div class="login">
             <header class="login__header login-header">
-                <div class="login-header__logo"></div>
-                <div class="login-header__title">Sign in to Telegram</div>
+                <div class="login-header__logo">
+                    <img class="login-header__logo-img" src="static/img/telegram-logo.png" alt="telegramm logo">
+                </div>
+                <div class="login-header__title">Sign in&nbsp;to&nbsp;Telegram</div>
                 <div class="login-header__description">Please confirm your country and enter your phone number.</div>
             </header>
 
@@ -23,7 +25,9 @@
                 <div class="login-form">
                     <ul class="login-form__list">
                         <li class="login-form__item">
-                            <input placeholder="Country" type="text" class="login-form__input">
+                            <select name="country" id="country">
+                                <option value=""></option>
+                            </select>
                         </li>
 
                         <li class="login-form__item">

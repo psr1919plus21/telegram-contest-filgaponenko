@@ -1,3 +1,40 @@
+.login__header {
+    padding-top: 101px;
+}
+
+.login-header__logo {
+    max-width: 160px;
+    margin: 0 auto 41px;
+    letter-spacing: .2px;
+}
+
+.login-header__logo-img {
+    width: 100%;
+}
+
+.login-header__title {
+    text-align: center;
+    font-size: 32px;
+}
+
+.login-header__description {
+    text-align: center;
+    max-width: 230px;
+    margin: 15px auto 0;
+    line-height: 20px;
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.login-form__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 .login__spiner {
     display: none;
 }

@@ -14,3 +14,10 @@ gulp.task('sass', function () {
 gulp.task('sass:watch', function () {
   gulp.watch('./src/static/scss/*.scss', gulp.series('sass'));
 });
+
+gulp.task('img', function () {
+    return gulp.src('./src/static/img/*')
+      .pipe(gulp.dest('./dist/img'));
+});
+
+gulp.task('build', gulp.series('sass', 'img'));
