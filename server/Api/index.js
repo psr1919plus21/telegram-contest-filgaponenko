@@ -1,13 +1,18 @@
 const TelegramApp = require('../TelegramApp');
 
-const store = {
-    user: {},
-}
 class Api {
     constructor({ server }) {
-        const self = this;
+        this.store = {
+            user: {}
+        }
         this.server = server;
         this.telegramApp = new TelegramApp();
+
+        this.initSendPhone(); 
+    }
+
+    initSendPhone() {
+        const self = this;
 
         this.server.post('/api/send_phone', function (req, res) {
             if (!req.body) {
@@ -16,12 +21,18 @@ class Api {
             }
             // Получить телефон от пользователя 
             const phone_number = req.body.phone_number;
-            store.user.phone = phone_number;
+            self.store.user.phone = phone_number;
 
             // Отправить код на телефон
-            self.telegramApp.sendSMSCode({ phone: store.user.phone });
-
-            res.send({req_body_was: req.body});
+            self.telegramApp.sendSMSCode({ phone: self.store.user.phone }).then((result) => {
+                res.send(result);
+            }).catch((error) => {
+                res.statusCode = error.error_code;
+                res.send({
+                    status: error.error_code,
+                    message: error.error_message
+                });
+            })
           });
     }
 }

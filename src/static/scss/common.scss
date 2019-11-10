@@ -1,0 +1,17 @@
+.hidden {
+    display: none;
+}
+
+.progress {
+    animation: blink  1s infinite ease-in-out;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.6;
+    }
+}
