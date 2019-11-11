@@ -1,5 +1,6 @@
 @import './common.scss';
 @import '../../components/countriesSelect/countries.scss';
+@import '../../components/styledCheckbox/styledCheckbox.scss';
 
 $color-input-border: #dadce0;
 $color-input-focus: #4ea4f6;
@@ -10,8 +11,8 @@ $color-button-blue: #4ea4f6;
 }
 
 .login-header__logo {
-    max-width: 160px;
-    margin: 0 auto 41px;
+    max-width: 164px;
+    margin: 0 auto 37px;
     letter-spacing: .2px;
 }
 
@@ -46,6 +47,18 @@ $color-button-blue: #4ea4f6;
 .login-form__item {
     margin-bottom: 25px;
     position: relative;
+}
+
+.login-form__label_keep-me {
+    margin-left: 19px;
+    position: relative;
+    top: -3px;
+
+    .login-form__checkbox {
+        margin-right: 23px;
+        height: 17px;
+        width: 22px;
+    }
 }
 
 .login-form__input {
@@ -127,7 +140,7 @@ $color-button-blue: #4ea4f6;
 
 .submit-form-item {
     display: none;
-    margin-top: 48px;
+    margin-top: 43px;
 }
 
 .submit-form-item_active {

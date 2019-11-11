@@ -1,8 +1,7 @@
 import Api from './services/Api';
 
 import initCountiesSelect  from './components/countriesSelect';
-
-
+import styledCheckbox  from './components/styledCheckbox';
 
 const phoneFormItem = document.querySelector('.phone-form-item');
 const submitFormItem = document.querySelector('.submit-form-item');
@@ -20,6 +19,8 @@ initCountiesSelect('.country-input', (selectedCountry) => {
     phoneInput.value = `+ ${callingCode} `;
     phoneMask = phoneInput.value;
 });
+
+styledCheckbox('.login-form__checkbox');
 
 phoneInput.addEventListener('keyup', onPhoneKeyUp);
 phoneInput.addEventListener('keyup', applyPhoneMask);
@@ -53,6 +54,7 @@ function onSentPhoneSuccess() {
 
 function onSentPhoneError() {
     phoneFormItem.classList.add('error');
+    submitFormButton.textContent = 'Next';
 }
 
 function applyPhoneMask(e) {
