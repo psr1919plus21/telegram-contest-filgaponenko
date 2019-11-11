@@ -89,6 +89,7 @@ $color-button-blue: #4ea4f6;
 
 .login-form__submit {
     color: #fff;
+    cursor: pointer;
     background: $color-button-blue;
     padding: 18px 22px;
     display: block;
@@ -97,6 +98,31 @@ $color-button-blue: #4ea4f6;
     text-align: center;
     text-transform: uppercase;
     font-size: 15px;
+}
+
+.login-form__submit_progress {
+    &:before {
+        content: '';
+        animation: spiner-rotate 1s ease-in-out infinite;
+        border-radius: 50%;
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        top: 50%;
+        right: 14px;
+        transform: translateY(-50%);
+        border: 2px solid #fff;
+        border-right-color: transparent;
+    }
+}
+
+@keyframes spiner-rotate {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
 }
 
 .submit-form-item {
