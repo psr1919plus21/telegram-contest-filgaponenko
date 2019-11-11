@@ -2,6 +2,7 @@ const path = require('path');
 const os = require('os');
 const express = require('express');
 const bodyParser = require('body-parser');
+const exphbs  = require('express-handlebars');
 const server = express();
 
 const Api = require('./Api');
@@ -10,11 +11,13 @@ initServer({ server, port: 3000 });
 
 function initServer({ server, port }) {
 
+  server.engine('handlebars', exphbs());
+  server.set('view engine', 'handlebars');
   server.use(bodyParser.json()); 
   server.use('/static', express.static('dist'));
 
   server.get('/', function (req, res) {
-    res.send('Hello World!');
+    res.render('home', { foo: 'bar'});
   });
 
   server.get('/login', function (req, res) {
