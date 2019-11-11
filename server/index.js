@@ -6,6 +6,7 @@ const exphbs  = require('express-handlebars');
 const server = express();
 
 const Api = require('./Api');
+const currentUser = require('./Store/User');
 
 initServer({ server, port: 3000 });
 
@@ -17,15 +18,20 @@ function initServer({ server, port }) {
   server.use('/static', express.static('dist'));
 
   server.get('/', function (req, res) {
-    res.render('home', { foo: 'bar'});
-  });
-
-  server.get('/login', function (req, res) {
-    res.sendFile(path.resolve(__dirname + '/../templates/login.html'));
+    res.render('login', { 
+      page: 'login',
+      breadcrumbs: 'Welcome :)'
+    });
   });
 
   server.get('/code', function (req, res) {
-    res.sendFile(path.resolve(__dirname + '/../templates/code.html'));
+    const user = currentUser.getUser();
+
+    res.render('code', { 
+      page: 'login',
+      breadcrumbs: 'Enter SMS code',
+      phone_number: user.phone_number
+    });
   });
 
   server.listen(port, function() {
