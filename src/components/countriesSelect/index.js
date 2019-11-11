@@ -1,6 +1,6 @@
 import countries from './countries.json';
 
-export default function initCountriesSelect(selector) {
+export default function initCountriesSelect(selector, cb) {
     const inputField = selector && document.querySelector(selector);
 
     if (!inputField) {
@@ -8,7 +8,7 @@ export default function initCountriesSelect(selector) {
         return;
     }
 
-    createContentFor(inputField);
+    createContentFor(inputField, cb);
     
     inputField.addEventListener('focus', () => {
         initCountriesSelect.contentWrapper.classList.add('countries-select__content-wrapper_active');
@@ -25,7 +25,7 @@ export default function initCountriesSelect(selector) {
     }); 
 }
 
-function createContentFor(inputField) {
+function createContentFor(inputField, cb) {
     const contentWrapper = document.createElement('div');
     contentWrapper.classList.add('countries-select__content-wrapper');
 
@@ -56,6 +56,7 @@ function createContentFor(inputField) {
 
         element.addEventListener('mousedown', () => {
             inputField.value = item.country;
+            cb(item);
         });
 
         leftSide.appendChild(flag);
