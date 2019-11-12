@@ -57,6 +57,8 @@ class Api {
                 code,
             }).then((result) => {
                 res.send(result);
+
+                self.telegramApp.getContacts();
             }).catch((error) => {
                 res.statusCode = error.error_code;
                 res.send({
