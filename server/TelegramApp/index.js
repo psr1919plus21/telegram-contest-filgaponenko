@@ -67,6 +67,23 @@ class TelegramApp {
         }); 
     }
 
+    login({ phone_number, phone_code_hash, code }) {
+        console.log('\n\n\n\n\n\n++++++++++++++++++++++++phone_number: ', phone_number);
+        console.log('phone_code_hash: ', phone_code_hash);
+        console.log('code: ', code);
+        
+        return new Promise((resolve, reject) => {
+            this.client.auth.signIn(phone_number, phone_code_hash, code, function(result) {
+                if(result.error_code) {
+                      reject(result);
+                } else { 
+                    console.log('!!!!!!!!!!!!!loged in!!!!: ', result);
+                    resolve(result);
+                }
+            });
+        }); 
+    }
+
     
 }
 

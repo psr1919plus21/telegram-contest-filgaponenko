@@ -47,8 +47,11 @@ function sentPhone() {
         })
 }
 
-function onSentPhoneSuccess() {
+function onSentPhoneSuccess(result) {
     phoneFormItem.classList.remove('error');
+    
+    const user = result.data.user;
+    localStorage.setItem('user', JSON.stringify(user));
     window.location = '/code';
 }
 

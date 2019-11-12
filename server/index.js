@@ -19,7 +19,8 @@ function initServer({ server, port }) {
 
   server.get('/', function (req, res) {
     res.render('login', { 
-      page: 'login',
+      js_bundle: 'login',
+      css_bundle: 'login',
       breadcrumbs: 'Welcome :)'
     });
   });
@@ -28,9 +29,11 @@ function initServer({ server, port }) {
     const user = currentUser.getUser();
 
     res.render('code', { 
-      page: 'login',
+      js_bundle: 'code',
+      css_bundle: 'login',
       breadcrumbs: 'Enter SMS code',
-      phone_number: user.phone_number
+      phone_number: user.phone_number,
+      logo_mod: 'monkey'
     });
   });
 
