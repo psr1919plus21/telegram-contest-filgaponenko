@@ -2,7 +2,8 @@
         <div class="login">
             <header class="login__header login-header">
                 <div class="login-header__logo login-header__logo_{{logo_mod}}">
-                    <img class="login-header__logo-img" src="static/img/monkey-code.png" alt="monkey logo">
+                    <img class="login-header__logo-img login-header__logo-img_code" src="static/img/monkey-code.png" alt="monkey logo">
+                    <img class="login-header__logo-img login-header__logo-img_code-error" src="static/img/monkey-code-error.png" alt="monkey logo">
                 </div>
                 <div class="login-header__title">{{phone_number}}</div>
                 <div class="login-header__description">We have seny you an SMS with the code.</div>
@@ -11,9 +12,9 @@
             <div class="login__content">
                 <div class="login-form">
                     <ul class="login-form__list">
-                        <li class="login-form__item">
+                        <li class="login-form__item code-form-item">
                             <input placeholder="Code" autocomplete="off" type="number" name="code" class="login-form__input code-input">
-                            <label class="login-form__input-label" for="code">Code</label>
+                            <label class="login-form__input-label code-label" for="code">Code</label>
                         </li>
 
                         <li class="login-form__item submit-form-item">

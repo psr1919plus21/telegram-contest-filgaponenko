@@ -51,18 +51,18 @@ class Api {
             const phone_code_hash = req.body.phone_code_hash;
             const code = req.body.code;
 
-
             self.telegramApp.login({ 
                 phone_number,
                 phone_code_hash,
                 code,
             }).then((result) => {
-                console.log('loggedIn');
-                console.log(result);
                 res.send(result);
             }).catch((error) => {
                 res.statusCode = error.error_code;
-                res.send(error);
+                res.send({
+                    error_code: error.error_code,
+                    error_message: error.error_message
+                });
             })
           });
     }
