@@ -37,6 +37,17 @@ function initServer({ server, port }) {
     });
   });
 
+  server.get('/feed', function (req, res) {
+    const user = currentUser.getUser();
+    const contacts = currentUser.getContacts();
+
+    res.render('feed', { 
+      js_bundle: 'feed',
+      css_bundle: 'feed',
+      breadcrumbs: 'Feed'
+    });
+  });
+
   server.listen(port, function() {
     console.log('Express server listen port: ', port);
     new Api({ server });

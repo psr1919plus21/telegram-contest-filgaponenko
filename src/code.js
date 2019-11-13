@@ -49,7 +49,7 @@ function signIn(e) {
 }
 
 function onLoginSuccess(result) {
-    console.log('on client!: ', result);
+    window.location = '/feed'
 }
 
 function onLoginError(error) {

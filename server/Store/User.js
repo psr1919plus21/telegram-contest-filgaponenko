@@ -1,8 +1,7 @@
 class User {
     constructor() {
-        this.user = {
-
-        };
+        this.user = {};
+        this.contacts = {};
     }
 
     setUser(user) {
@@ -11,6 +10,14 @@ class User {
 
     getUser() {
         return this.user;
+    }
+
+    setContacts(contacts) {
+        this.contacts = contacts;
+    }
+
+    getContacts() {
+        return this.contacts;
     }
 };
 

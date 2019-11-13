@@ -18,7 +18,7 @@ class TelegramApp {
     }
 
     createClient(cb) {
-        return telegramLink.createClient(this.appSettings, telegramLink.PROD_PRIMARY_DC, cb.bind(this));
+        return telegramLink.createClient(this.appSettings, telegramLink.TEST_PRIMARY_DC, cb.bind(this));
     }
 
     onClientReady(error) {
@@ -80,17 +80,11 @@ class TelegramApp {
     } 
 
     getContacts() {
-        this.client.contacts.getContacts('',function(contacts) {
-
-            console.log('\n\n---------------------\n\ncontacts recieved');
-            console.log('contacts: ', contacts);
-            contacts.users.list.forEach((user) => {
-                console.log('\n', user.first_name, '\n');
-            });
-
-            console.log('\n\n----------------\n\n');
-
-         });
+        return new Promise((resolve, reject) => {
+            this.client.contacts.getContacts('',function(contacts) {
+                resolve(contacts.users && contacts.users && contacts.users.list);
+             });
+        });  
     }
 }
 

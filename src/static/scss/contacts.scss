@@ -1,0 +1,28 @@
+$color-status-online: #3893ed;
+
+.contacts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contacts-list__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.contacts-list__photo {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+    margin-right: 11px;
+}
+
+.contacts-list__status {
+    color: $color-status-online;
+    font-size: 13px;
+    position: relative;
+    left: 2px;
+    top: 2px;
+}

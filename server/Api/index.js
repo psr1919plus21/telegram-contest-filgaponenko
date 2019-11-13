@@ -8,6 +8,7 @@ class Api {
 
         this.initSendPhone(); 
         this.initLogin();
+        this.initGetContacts();
     }
 
     initSendPhone() {
@@ -56,9 +57,25 @@ class Api {
                 phone_code_hash,
                 code,
             }).then((result) => {
-                res.send(result);
-
-                self.telegramApp.getContacts();
+                self.telegramApp.getContacts()
+                    .then((userContacts) => {
+                        const fakeContacts = [
+                            {
+                                first_name: 'Kondo',
+                                last_name: 'Ieuasu'
+                            },
+                            {
+                                first_name: 'Rustem',
+                                last_name: 'Tolstobrov'
+                            },
+                            {
+                                first_name: 'Bartolomej',
+                                last_name: 'Dohnal'
+                            }
+                        ];
+                        currentUser.setContacts(fakeContacts);    
+                        res.send(result);  
+                    });  
             }).catch((error) => {
                 res.statusCode = error.error_code;
                 res.send({
@@ -67,6 +84,15 @@ class Api {
                 });
             })
           });
+    }
+
+    initGetContacts() {
+        const self = this;
+
+        this.server.get('/api/contacts', function (req, res) {
+            const contacts = currentUser.getContacts();
+            res.send(contacts);
+        });
     }
 }
 

@@ -1,0 +1,14 @@
+@import './common.scss';
+@import '../../components/styledCheckbox/styledCheckbox.scss';
+@import './sidebar.scss';
+@import './contacts.scss';
+
+$color-feed-bg: #e6ebee;
+
+.container_feed {
+    background: $color-feed-bg;
+    padding-left: 0;
+    min-height: 100vh;
+    margin-bottom: 0;
+}
+

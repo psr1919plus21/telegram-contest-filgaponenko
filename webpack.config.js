@@ -3,7 +3,8 @@ const path = require('path');
 module.exports = {
   entry: {
     login: './src/login',
-    code: './src/code'
+    code: './src/code',
+    feed: './src/feed'
   },
   module: {
     rules: [

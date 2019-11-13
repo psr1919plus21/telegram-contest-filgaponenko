@@ -20,9 +20,14 @@ function logIn({ phone_number, phone_code_hash, code }) {
     }, options);
 }
 
+function getContacts() {
+    return axios.get('/api/contacts', {}, options);
+}
+
 
 export default {
     sentPhone,
     logIn,
+    getContacts,
 }
 
