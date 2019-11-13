@@ -1,7 +1,44 @@
+@import './colors.scss';
+
 .sidebar {
     background: $color-white;
     box-shadow: 1px -2px 1px 0px #dadce0;
     max-width: 400px;
     min-height: 100vh;
     padding-left: 12px;
+}
+
+.sidebar__header {
+    display: flex;
+    align-items: center;
+    padding: 9px 20px 9px 5px;
+    margin-bottom: 9px;
+}
+
+.sidebar__header-controls {
+    margin-right: 26px;
+}
+
+.sidebar__header-back {
+    cursor: pointer;
+    background: url('../img/icon-back.svg') no-repeat center;
+    background-size: contain;
+    height: 22px;
+    width: 22px;
+}
+
+.sidebar__header-search {
+    flex-grow: 1;
+}
+
+.sidebar__header-search-input {
+    background: #f4f4f5 url('../img/icon-search.svg') no-repeat 11px center;
+    background-size: 24px;
+    box-sizing: border-box;
+    border-radius: 22px;
+    border: 0;
+    font-size: 16px;
+    line-height: 42px;
+    padding-left: 41px;
+    width: 100%;
 }
