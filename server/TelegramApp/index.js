@@ -18,7 +18,7 @@ class TelegramApp {
     }
 
     createClient(cb) {
-        return telegramLink.createClient(this.appSettings, telegramLink.TEST_PRIMARY_DC, cb.bind(this));
+        return telegramLink.createClient(this.appSettings, telegramLink.PROD_PRIMARY_DC, cb.bind(this));
     }
 
     onClientReady(error) {
@@ -44,22 +44,13 @@ class TelegramApp {
         return new Promise((resolve, reject) => {
             this.client.auth.sendCode(phone, this.appSettings.id, this.appSettings.hash, function(result) {
                 if(result.instanceOf('mtproto.type.Rpc_error')) {
-                    if(result.error_code === 303){ // PHONE_MIGRATE_X error (wrong datacenter)
+                    if(result.error_code === 303){ 
                       console.log('Something with DC');
-                      // data.load('Finding Datacenter...')
-                      // data.useDatacenter('DC_'+result.error_message.slice(-1),function(dc){
-                      //   data.client.end(function(){
-                      //     data.connect(true)
-                      //   })
-                      // })
                     } else {
                       console.log('Errors:',result.error_code,result.error_message);
                       reject(result);
                     }
-                  } else { // NO ERROR
-                    //data.log('Res:',JSON.stringify(result))
-                  //   data.user.registered = result.phone_registered
-                  //   data.user.phoneCodeHash = result.phone_code_hash
+                  } else { 
                     console.log('Code was sent.\nResult: ', result);
                     resolve(result);
                   }
